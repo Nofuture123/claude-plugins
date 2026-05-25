@@ -1,0 +1,22 @@
+{
+  "name": "rocky-plugins",
+  "owner": {
+    "name": "Rocky",
+    "email": "wpengf@gmail.com"
+  },
+  "metadata": {
+    "description": "Rocky 的个人 Claude Code 插件聚合站 —— curated 第三方插件清单，不维护代码本体，只做指针索引。",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "mattpocock-skills",
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills"
+      },
+      "description": "Matt Pocock 的 14 个工程/生产力 skill（TDD、diagnose、to-prd、triage、grill-me、handoff 等）。",
+      "version": "main"
+    }
+  ]
+}
