@@ -1,0 +1,9 @@
+{
+  "name": "matt-handoff",
+  "version": "1.0.0",
+  "description": "Compact the current conversation into a handoff document for another agent to pick up.",
+  "metadata": {
+    "upstream": "mattpocock/skills",
+    "upstream_path": "./skills/productivity/handoff"
+  }
+}
