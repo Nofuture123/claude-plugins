@@ -79,27 +79,22 @@ while IFS= read -r skill_rel; do
     }
   ' "$dest/SKILL.md")"
 
-  mkdir -p "$dest/.claude-plugin"
-  jq -n \
-    --arg name "$plugin_name" \
-    --arg desc "$desc" \
-    --arg version "1.0.0" \
-    --arg upstream_path "$skill_rel" \
-    '{
-      name: $name,
-      version: $version,
-      description: $desc,
-      metadata: {
-        upstream: "mattpocock/skills",
-        upstream_path: $upstream_path
-      }
-    }' > "$dest/.claude-plugin/plugin.json"
+  # Per anthropic-agent-skills pattern: all plugins share source "./" (the marketplace root),
+  # and each plugin's skills[] array points at its single vendor subdirectory.
+  # vendor/<name>/.claude-plugin/plugin.json is NOT generated — Claude Code treats the
+  # vendor subdir as a bare SKILL.md container, identity comes from the marketplace entry.
 
   plugins_json="$(echo "$plugins_json" | jq \
     --arg name "$plugin_name" \
     --arg desc "$desc" \
-    --arg src "./vendor/$plugin_name" \
-    '. + [{name: $name, source: $src, description: $desc}]')"
+    --arg skill_path "./vendor/$plugin_name" \
+    '. + [{
+      name: $name,
+      source: "./",
+      description: $desc,
+      strict: false,
+      skills: [$skill_path]
+    }]')"
 
   count=$((count + 1))
   echo "  ✓ $plugin_name"
