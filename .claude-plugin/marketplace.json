@@ -7,7 +7,7 @@
   "metadata": {
     "description": "Rocky 的个人 Claude Code 插件聚合站 —— vendor/ 下的 plugin 由 scripts/explode.sh 从上游 mattpocock/skills 自动爆破生成。",
     "version": "0.2.0",
-    "last_synced": "2026-05-25"
+    "last_synced": "2026-06-01"
   },
   "plugins": [
     {
