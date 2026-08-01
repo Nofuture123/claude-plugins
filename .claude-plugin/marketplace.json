@@ -7,13 +7,13 @@
   "metadata": {
     "description": "Rocky 的个人 Claude Code 插件聚合站 —— vendor/ 下的 plugin 由 scripts/explode.sh 从上游 mattpocock/skills 自动爆破生成。",
     "version": "0.2.0",
-    "last_synced": "2026-07-01"
+    "last_synced": "2026-08-01"
   },
   "plugins": [
     {
       "name": "matt-ask-matt",
       "source": "./",
-      "description": "Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.",
+      "description": "Ask which skill or flow fits your situation. A router over the skills in this repo.",
       "strict": false,
       "skills": [
         "./vendor/matt-ask-matt"
@@ -74,21 +74,39 @@
       ]
     },
     {
-      "name": "matt-to-issues",
+      "name": "matt-to-spec",
       "source": "./",
-      "description": "Break a plan, spec, or PRD into independently-grabbable issues on the project issue tracker using tracer-bullet vertical slices.",
+      "description": "Turn the current conversation into a spec and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.",
       "strict": false,
       "skills": [
-        "./vendor/matt-to-issues"
+        "./vendor/matt-to-spec"
       ]
     },
     {
-      "name": "matt-to-prd",
+      "name": "matt-to-tickets",
       "source": "./",
-      "description": "Turn the current conversation into a PRD and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.",
+      "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker — edges as text in one file per ticket locally, or native blocking links on a real tracker.",
       "strict": false,
       "skills": [
-        "./vendor/matt-to-prd"
+        "./vendor/matt-to-tickets"
+      ]
+    },
+    {
+      "name": "matt-wayfinder",
+      "source": "./",
+      "description": "Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-wayfinder"
+      ]
+    },
+    {
+      "name": "matt-implement",
+      "source": "./",
+      "description": "\"Implement a piece of work based on a spec or set of tickets.\"",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-implement"
       ]
     },
     {
@@ -98,6 +116,15 @@
       "strict": false,
       "skills": [
         "./vendor/matt-prototype"
+      ]
+    },
+    {
+      "name": "matt-research",
+      "source": "./",
+      "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-research"
       ]
     },
     {
@@ -119,6 +146,24 @@
       ]
     },
     {
+      "name": "matt-code-review",
+      "source": "./",
+      "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/PRD asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\".",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-code-review"
+      ]
+    },
+    {
+      "name": "matt-resolving-merge-conflicts",
+      "source": "./",
+      "description": "\"Use when you need to resolve an in-progress git merge/rebase conflict.\"",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-resolving-merge-conflicts"
+      ]
+    },
+    {
       "name": "matt-grill-me",
       "source": "./",
       "description": "A relentless interview to sharpen a plan or design.",
@@ -130,7 +175,7 @@
     {
       "name": "matt-grilling",
       "source": "./",
-      "description": "Interview the user relentlessly about a plan or design. Use when the user wants to stress-test a plan before building, or uses any 'grill' trigger phrases.",
+      "description": "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.",
       "strict": false,
       "skills": [
         "./vendor/matt-grilling"
