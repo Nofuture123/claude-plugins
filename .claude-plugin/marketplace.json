@@ -7,7 +7,7 @@
   "metadata": {
     "description": "Rocky 的个人 Claude Code 插件聚合站 —— vendor/ 下的 plugin 由 scripts/explode.sh 从上游 mattpocock/skills 自动爆破生成。",
     "version": "0.2.0",
-    "last_synced": "2026-08-01"
+    "last_synced": "2026-09-01"
   },
   "plugins": [
     {
@@ -40,7 +40,7 @@
     {
       "name": "matt-triage",
       "source": "./",
-      "description": "Move issues and external PRs through a state machine of triage roles — categorise, verify, grill if needed, and write agent-ready briefs.",
+      "description": "Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write agent-ready briefs.",
       "strict": false,
       "skills": [
         "./vendor/matt-triage"
@@ -58,7 +58,7 @@
     {
       "name": "matt-setup-matt-pocock-skills",
       "source": "./",
-      "description": "Configure this repo for the engineering skills — set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.",
+      "description": "\"Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.\"",
       "strict": false,
       "skills": [
         "./vendor/matt-setup-matt-pocock-skills"
@@ -76,7 +76,7 @@
     {
       "name": "matt-to-spec",
       "source": "./",
-      "description": "Turn the current conversation into a spec and publish it to the project issue tracker — no interview, just synthesis of what you've already discussed.",
+      "description": "\"Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed.\"",
       "strict": false,
       "skills": [
         "./vendor/matt-to-spec"
@@ -85,7 +85,7 @@
     {
       "name": "matt-to-tickets",
       "source": "./",
-      "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker — edges as text in one file per ticket locally, or native blocking links on a real tracker.",
+      "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).",
       "strict": false,
       "skills": [
         "./vendor/matt-to-tickets"
@@ -94,7 +94,7 @@
     {
       "name": "matt-wayfinder",
       "source": "./",
-      "description": "Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
+      "description": "Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
       "strict": false,
       "skills": [
         "./vendor/matt-wayfinder"
@@ -130,7 +130,7 @@
     {
       "name": "matt-domain-modeling",
       "source": "./",
-      "description": "Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.",
+      "description": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR.",
       "strict": false,
       "skills": [
         "./vendor/matt-domain-modeling"
@@ -148,7 +148,7 @@
     {
       "name": "matt-code-review",
       "source": "./",
-      "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes — Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/PRD asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \"review since X\".",
+      "description": "\"Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \\\"review since X\\\".\"",
       "strict": false,
       "skills": [
         "./vendor/matt-code-review"
@@ -161,6 +161,15 @@
       "strict": false,
       "skills": [
         "./vendor/matt-resolving-merge-conflicts"
+      ]
+    },
+    {
+      "name": "matt-wizard",
+      "source": "./",
+      "description": "Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself.",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-wizard"
       ]
     },
     {
@@ -200,12 +209,30 @@
       ]
     },
     {
-      "name": "matt-writing-great-skills",
+      "name": "matt-to-questionnaire",
       "source": "./",
-      "description": "Reference for writing and editing skills well — the vocabulary and principles that make a skill predictable.",
+      "description": "Turn a decision you can't fully answer into a questionnaire for someone else to fill in.",
       "strict": false,
       "skills": [
-        "./vendor/matt-writing-great-skills"
+        "./vendor/matt-to-questionnaire"
+      ]
+    },
+    {
+      "name": "matt-wait-what",
+      "source": "./",
+      "description": "\"Stop. That last message did not land: re-pitch it.\"",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-wait-what"
+      ]
+    },
+    {
+      "name": "matt-writing-for-agents",
+      "source": "./",
+      "description": "Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-writing-for-agents"
       ]
     }
   ]
