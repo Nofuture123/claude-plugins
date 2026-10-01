@@ -7,7 +7,7 @@
   "metadata": {
     "description": "Rocky 的个人 Claude Code 插件聚合站 —— vendor/ 下的 plugin 由 scripts/explode.sh 从上游 mattpocock/skills 自动爆破生成。",
     "version": "0.2.0",
-    "last_synced": "2026-09-01"
+    "last_synced": "2026-10-01"
   },
   "plugins": [
     {
@@ -110,6 +110,15 @@
       ]
     },
     {
+      "name": "matt-implement-spec",
+      "source": "./",
+      "description": "\"Implement the result of /to-spec and /to-tickets in code.\"",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-implement-spec"
+      ]
+    },
+    {
       "name": "matt-prototype",
       "source": "./",
       "description": "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.",
@@ -130,7 +139,7 @@
     {
       "name": "matt-domain-modeling",
       "source": "./",
-      "description": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR.",
+      "description": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.",
       "strict": false,
       "skills": [
         "./vendor/matt-domain-modeling"
@@ -155,12 +164,21 @@
       ]
     },
     {
-      "name": "matt-resolving-merge-conflicts",
+      "name": "matt-pr",
       "source": "./",
-      "description": "\"Use when you need to resolve an in-progress git merge/rebase conflict.\"",
+      "description": "\"Use when writing a PR body.\"",
       "strict": false,
       "skills": [
-        "./vendor/matt-resolving-merge-conflicts"
+        "./vendor/matt-pr"
+      ]
+    },
+    {
+      "name": "matt-retro",
+      "source": "./",
+      "description": "\"Conduct a retrospective on a coding session.\"",
+      "strict": false,
+      "skills": [
+        "./vendor/matt-retro"
       ]
     },
     {
